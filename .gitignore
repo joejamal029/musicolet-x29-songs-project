@@ -1,0 +1,39 @@
+# Python environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+ENV/
+env/
+
+# Project-specific database and playlists
+*.m3u
+*.m3u.bak
+*.csv
+*.csv.bak
+output/
+
+# Project artifacts and media
+artifacts/
+*.mp4
+*.png
+*.pdf
+
+# Logs and system files
+*.log
+_GhostHarvest_log.txt
+.DS_Store
+Thumbs.db
+
+# IDE and tool configs
+.vscode/
+.idea/
+.vibecode/
+.vibecode.yaml
+
+# Build and package files
+build/
+dist/
+*.egg-info/

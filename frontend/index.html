@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X:29 Pipeline</title>
+    <!-- Modern Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="background">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+    </div>
+
+    <div class="container">
+        <header class="glass-panel">
+            <h1>X:29 Pipeline</h1>
+            <p>Compile exact time songs from any music player.</p>
+            
+            <div class="controls" style="margin-bottom: 1rem;">
+                <select id="m3uInput" style="flex: 1; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0, 0, 0, 0.4); color: white; font-size: 1rem; outline: none; transition: border-color 0.3s; cursor: pointer;">
+                    <option value="" disabled selected>No M3U files found in root. Add one to import.</option>
+                </select>
+                <button id="importM3uBtn" class="btn secondary">Import M3U</button>
+            </div>
+            
+            <div class="controls" style="margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+                <input type="text" id="anchorInput" value="Musicolet" placeholder="Music Player Name (e.g., Spotify, Poweramp)" title="The OCR engine will look for this keyword to find your songs" style="flex: 2; min-width: 200px;">
+                <div class="crop-settings" style="flex: 3; display: flex; gap: 0.5rem; align-items: center; min-width: 300px;">
+                    <label style="font-size: 0.9rem; color: var(--text-muted); white-space: nowrap;">Crop Mode:</label>
+                    <select id="cropModeSelect" style="flex: 1; padding: 0.5rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0, 0, 0, 0.4); color: white; outline: none; cursor: pointer;">
+                        <option value="default" selected>Default (720p)</option>
+                        <option value="1080p">1080p Resolution</option>
+                        <option value="1440p">1440p Resolution</option>
+                        <option value="full">Scan Full Image</option>
+                        <option value="custom">Custom Dimensions...</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="customCropInputs" class="hidden" style="margin-bottom: 1rem; padding: 1rem; border: 1px dashed var(--glass-border); border-radius: 8px; background: rgba(0,0,0,0.2);">
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom:0.5rem;">Enter Rectangle (Left, Top, Right, Bottom) in Pixels:</p>
+                <div style="display: flex; gap: 0.5rem;">
+                    <input type="number" id="cropL" placeholder="L" style="width: 25%;" value="0">
+                    <input type="number" id="cropT" placeholder="T" style="width: 25%;" value="174">
+                    <input type="number" id="cropR" placeholder="R" style="width: 25%;" value="720">
+                    <input type="number" id="cropB" placeholder="B" style="width: 25%;" value="528">
+                </div>
+            </div>
+
+            
+            <div class="controls">
+                <input type="text" id="folderInput" placeholder="Enter absolute full path to screenshots folder...">
+                <button id="scanBtn" class="btn primary">Scan Folder</button>
+            </div>
+            
+            <!-- Dynamic Tree Container for Timeframe Selection -->
+            <div id="treeContainer" class="hidden" style="margin-top: 1rem; border-top: 1px solid var(--glass-border); padding-top: 1rem;">
+                <h3>Select Timeframes</h3>
+                <div id="treeGrid" style="max-height: 300px; overflow-y: auto; text-align: left; margin: 1rem 0; font-size: 0.9rem;"></div>
+                <button id="runSelectedBtn" class="btn primary" style="width: 100%;">Process Selected (...)</button>
+            </div>
+            
+            <div id="status" class="status-msg">Ready.</div>
+        </header>
+
+        <main id="resultsContainer" class="hidden">
+            <div class="actions-bar glass-panel" style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                <h2>Results <span id="countBadge">(0)</span></h2>
+                <div style="flex-grow: 1;"></div>
+                <select id="sortSelect" style="padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0, 0, 0, 0.4); color: white; outline: none; cursor: pointer;">
+                    <option value="chronological" selected>Sort: Chronological (Time Captured)</option>
+                    <option value="score_asc">Sort: Confidence Score (Lowest First)</option>
+                    <option value="score_desc">Sort: Confidence Score (Highest First)</option>
+                </select>
+                <button id="exportBtn" class="btn secondary" style="margin: 0;">Export to M3U</button>
+            </div>
+            
+            <div id="cardsList">
+                <!-- Section Groups will be injected here via JS -->
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
