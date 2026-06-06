@@ -26,6 +26,31 @@ The result was ~20,000 screenshots spanning years of this ritual, with roughly 6
 - **Bulk M3U Export**: Generates relative-path `.m3u` playlists grouped by capture timeframe, with case-insensitive fallbacks and unresolved-song reporting.
 - **Headless CLI Mode**: Process thousands of images silently from the terminal.
 
+## 🖥️ UI Showcase
+
+<table width="100%">
+  <tr>
+    <td width="50%" align="center">
+      <b>Home Page & Folder Scanner</b><br/>
+      <img src="docs/screenshots/X-29%20Homepage.png" alt="Home Page" width="100%"/>
+    </td>
+    <td width="50%" align="center">
+      <b>OCR & Binarization Processing</b><br/>
+      <img src="docs/screenshots/X-29%20Backend%20Processing.png" alt="Backend Processing" width="100%"/>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <b>Visual Verification UI & Match Cards</b><br/>
+      <img src="docs/screenshots/X-29%20Frontend%20Result.png" alt="Frontend Result" width="100%"/>
+    </td>
+    <td width="50%" align="center">
+      <b>Interactive Search & Match Correction</b><br/>
+      <img src="docs/screenshots/X-29%20Option%20to%20Correct%20Wrong%20Results%20by%20Search.png" alt="Option to Correct" width="100%"/>
+    </td>
+  </tr>
+</table>
+
 ## 🛠️ Technology Stack
 
 - **Backend**: Python 3.10+, FastAPI, Uvicorn

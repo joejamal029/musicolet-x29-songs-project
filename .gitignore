@@ -19,6 +19,7 @@ output/
 artifacts/
 *.mp4
 *.png
+!docs/screenshots/*.png
 *.pdf
 
 # Logs and system files
